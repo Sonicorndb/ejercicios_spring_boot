@@ -1,5 +1,7 @@
 package com.ejercicio.controlador;
 
+import java.util.Random;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,11 +53,12 @@ public class Controladores {
 		return contrasena;
 	}
 	
-	//refactorizar para que incluya números y caracteres especiales
+	//refactorizado para que incluya números y caracteres especiales
 	private char caracterAleatorio() {
-		int numCaracter = (int)Math.floor(Math.random()*(122 - 97)+97); 
-		//para pasar el código a carácter basta con hacer un cast a char 
-		char caracter = (char)numCaracter; 
+		String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		 
+        Random r = new Random();
+        char caracter = caracteres.charAt(r.nextInt(caracteres.length()));
 		return caracter; 
 	}
 	
